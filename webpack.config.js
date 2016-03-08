@@ -1,7 +1,9 @@
 
 
 module.exports = {
-  entry: './app/components/App.js',
+  devtool: 'cheap-module-source-map',
+  target: 'node',
+  entry: './src/app/components/App.js',
   output: {
   	path: './build',
     filename: 'bundle.js'       

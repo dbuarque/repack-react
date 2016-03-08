@@ -5,8 +5,8 @@
   "main": "bundle.js",
   "scripts": {
     "prestart": "npm run task",
-    "start": "node server/server.js",
-    "dev": "node server/dev-server.js",
+    "start": "node src/server/server.js",
+    "dev": "node src/server/dev-server.js",
     "lint": "eslint components",
     "task": "webpack"
   },
