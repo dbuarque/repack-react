@@ -1,7 +1,6 @@
 
 
 module.exports = {
-    context: __dirname + '/src',
     devtool: 'cheap-module-source-map',
     target: 'node',
     entry: './src/app/components/App.js',
