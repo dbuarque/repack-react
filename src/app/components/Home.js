@@ -28,7 +28,8 @@ export default class Home extends Component {
     render() {
         return (
             <main>
-                <h1>HEllo</h1>
+                <br/>
+                <h1>Hello React!</h1>
                 <RaisedButton>Count</RaisedButton>
             </main>
         )

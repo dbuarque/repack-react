@@ -2,35 +2,29 @@ var path = require('path');
 var webpack = require('webpack');
 
 module.exports = {
-  devtool: 'eval',
-  entry: [
-    'webpack-dev-server/client?http://localhost:3000',
-    'webpack/hot/only-dev-server',
-    './src/app/components/App.js'
-  ],
-  output: {
-    path: path.join(__dirname, 'dist'),
-    filename: 'bundle.js',
-    publicPath: '/build/'
-  },
-  plugins: [
-    new webpack.HotModuleReplacementPlugin()
-  ],
-  module: {
-    loaders: [
-      {
-        test: /(\.scss|\.css)$/,
+    context: __dirname + '/src',
+    devtool: 'eval',
+    debug: true,
+    entry: [
+        'webpack-dev-server/client?http://localhost:3000',
+        'webpack/hot/only-dev-server',
+        './app/components/App.js'
+    ],
+    output: {
+        path: path.join(__dirname, 'dist'),
+        filename: 'bundle.js',
+        publicPath: '/build/'
+    },
+    module: {
         loaders: [
-          require.resolve('style-loader'),
-          require.resolve('css-loader') + '?sourceMap&modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]',
-          require.resolve('sass-loader') + '?sourceMap'
+            {
+                test: /\.js$/,
+                exclude: /node_modules/,
+                loaders: ['react-hot', 'babel-loader' ]
+            }
         ]
-      },
-      {
-        test: /\.js$/,
-        loaders: ['react-hot', 'babel'],
-        include: path.join(__dirname, 'app')
-      }
+    },
+    plugins: [
+        new webpack.HotModuleReplacementPlugin()
     ]
-  }
 };
